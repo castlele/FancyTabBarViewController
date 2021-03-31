@@ -3,22 +3,22 @@ import UIKit
 @available(iOS 11.0, *)
 open class FancyTabBarViewController: UIViewController {
 	
-	var childViewController: [UIViewController]!
-	var vcHeightOffset: CGFloat = 0
+	open var childViewController: [UIViewController]!
+	open var vcHeightOffset: CGFloat = 0
 	
-	var tabBarItems: [TabBarItem]!
-	var tabBarDefaultItem: Int = 0
-	var tabBarColor: UIColor!
+	open var tabBarItems: [TabBarItem]!
+	open var tabBarDefaultItem: Int = 0
+	open var tabBarColor: UIColor!
 	
-	var highlighter: UIView!
-	var highlighterColor: UIColor!
+	open var highlighter: UIView!
+	open var highlighterColor: UIColor!
 	
 	private var tabBarView: FancyTabBarView!
 	private var selectedViewController: Int {
 		tabBarDefaultItem
 	}
 	
-	public func initialization() {
+	open func initialization() {
 		guard childViewController.count == tabBarItems.count else {
 			fatalError("Error: Amount of ViewController should be equal to items of tab bar")
 		}
