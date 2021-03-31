@@ -1,7 +1,7 @@
 import UIKit
 
 @available(iOS 11.0, *)
-public class FancyTabBarViewController: UIViewController {
+open class FancyTabBarViewController: UIViewController {
 	
 	var childViewController: [UIViewController]!
 	var vcHeightOffset: CGFloat = 0
