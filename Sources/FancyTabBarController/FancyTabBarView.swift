@@ -66,11 +66,11 @@ final class FancyTabBarView: UIView {
 		self.makeHighlighter(highlighter, color: hlColor)
 		addSubview(self.highlighter)
 		
+		self.defaultItem = index
 		self.setupTabBarItems()
 		
 		self.setConstraints()
 		
-		self.defaultItem = index
 		self.beginTransitionOfHighlighter(to: self.defaultItem)
 	}
 	
@@ -103,13 +103,17 @@ final class FancyTabBarView: UIView {
 	}
 	
 	private func setupTabBarItems() {
-		addTargets()
+		addTargetsAndActivateDefaultItem()
 		addToTabBarAsSubview()
 	}
 	
-	private func addTargets() {
-		for item in tabBarItems {
+	private func addTargetsAndActivateDefaultItem() {
+		for (index, item) in tabBarItems.enumerated() {
 			item.addTarget(self, action: #selector(selectTabBarItem), for: .touchUpInside)
+			
+			if index == defaultItem {
+				item.isActivated = true
+			}
 		}
 	}
 	
