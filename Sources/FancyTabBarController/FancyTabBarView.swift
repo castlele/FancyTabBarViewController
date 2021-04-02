@@ -217,7 +217,7 @@ public final class FancyTabBarView: UIView {
 // MARK:- TabBar view setup
 extension FancyTabBarView {
 	
-	override func draw(_ rect: CGRect) {
+	public override func draw(_ rect: CGRect) {
 		let width = Constants.width
 		let height = Constants.height
 
