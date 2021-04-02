@@ -153,7 +153,7 @@ final class FancyTabBarView: UIView {
 	
 	private func setConstraints() {
 		for (number, item) in tabBarItems.enumerated() {
-			if item.isActivated {
+			if number == 0 {
 				// Constraints for the first (activated by default) tabBarItem
 				setConstraintsForTabBarItem(item, activated: true, previousItem: nil)
 			} else {
@@ -186,7 +186,7 @@ final class FancyTabBarView: UIView {
 		
 		NSLayoutConstraint.activate([
 			highlighter.centerXAnchor.constraint(equalTo: item.centerXAnchor),
-			highlighter.centerYAnchor.constraint(equalTo: item.centerYAnchor),
+			highlighter.centerYAnchor.constraint(equalTo: bottomAnchor),
 			highlighter.heightAnchor.constraint(equalToConstant: Constants.itemSize),
 			highlighter.widthAnchor.constraint(equalToConstant: Constants.itemSize),
 		])
@@ -203,6 +203,7 @@ final class FancyTabBarView: UIView {
 			let item = self.tabBarItems[index]
 			
 			item.transform = CGAffineTransform(translationX: 0, y: -Constants.height / 2)
+			item.transform = CGAffineTransform(scaleX: 10, y: 10)
 			self.deSelectItems(despite: item)
 			
 			self.highlighter.center = CGPoint(x: item.center.x, y: Constants.height)
@@ -210,7 +211,7 @@ final class FancyTabBarView: UIView {
 	}
 }
 
-// MARK:- View setup
+// MARK:- TabBar view setup
 extension FancyTabBarView {
 	
 	override func draw(_ rect: CGRect) {
