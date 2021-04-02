@@ -15,7 +15,7 @@ open class FancyTabBarViewController: UIViewController {
 	
 	private var tabBarView: FancyTabBarView!
 	private var selectedViewController: Int {
-		tabBarDefaultItem
+		tabBarView.selectedIndex
 	}
 	
 	open func initialization() {
