@@ -13,7 +13,7 @@ open class FancyTabBarViewController: UIViewController {
 	open var highlighter: UIView!
 	open var highlighterColor: UIColor!
 	
-	private var tabBarView: FancyTabBarView!
+	public var tabBarView: FancyTabBarView!
 	private var selectedViewController: Int {
 		tabBarView.selectedIndex
 	}
