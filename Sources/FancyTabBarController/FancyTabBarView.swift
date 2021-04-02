@@ -202,8 +202,7 @@ final class FancyTabBarView: UIView {
 		) {
 			let item = self.tabBarItems[index]
 			
-			item.transform = CGAffineTransform(translationX: 0, y: -Constants.height / 2)
-			item.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+			item.transform = CGAffineTransform(translationX: 0, y: -Constants.height / 2).scaledBy(x: 2, y: 2)
 			self.deSelectItems(despite: item)
 			
 			self.highlighter.center = CGPoint(x: item.center.x, y: Constants.height)
