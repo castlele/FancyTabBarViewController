@@ -13,7 +13,7 @@ final class FancyTabBarView: UIView {
 		static let height: CGFloat = 70
 		static let width: CGFloat = UIScreen.main.bounds.width
 		static let padding: CGFloat = 10
-		static let itemSize: CGFloat = 45
+		static let itemSize: CGFloat = 60
 	}
 	
 	private var tabBarColor: UIColor = .clear
@@ -175,8 +175,8 @@ final class FancyTabBarView: UIView {
 				equalTo: activated ? leadingAnchor : prevItem!.trailingAnchor,
 				constant: paddingBetweenItems),
 			
-			item.heightAnchor.constraint(equalToConstant: itemSize),
-			item.widthAnchor.constraint(equalToConstant: itemSize),
+			item.heightAnchor.constraint(equalToConstant: item.frame.height),
+			item.widthAnchor.constraint(equalToConstant: item.frame.width),
 			
 		])
 	}
