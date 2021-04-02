@@ -3,31 +3,63 @@ import UIKit
 @available(iOS 11.0, *)
 open class FancyTabBarViewController: UIViewController {
 	
+	/// Array of view controllers, that are represented by `FancyTabBarViewController`
+	/// Always should be equal to amount of 'tabBarItems'
 	open var childViewController: [UIViewController]!
+
+	/// Vertical offset of each child view controller
 	open var vcHeightOffset: CGFloat = 0
 	
+	/// Array of Buttons, that presents corresponding view controller from 'childViewController'
+	/// Always should be equal to amount of 'childViewController'
 	open var tabBarItems: [TabBarItem]!
+
+	/// Index of default item and view controller
 	open var tabBarDefaultItem: Int = 0
+
 	open var tabBarColor: UIColor!
 	
+	/// View, which represents special element of Tab bar
+	/// It "highlights" tab bar item
 	open var highlighter: UIView!
+
 	open var highlighterColor: UIColor!
 	
+	/// View of Tab bar
 	public var tabBarView: FancyTabBarView!
+
 	private var selectedViewController: Int {
 		tabBarView.selectedIndex
 	}
 	
+	/// Initialize `FancyTabBarViewController`
+	/// 'tabBarItems', 'childViewController' and 'highlighterColor' should be initialized first before calling this method
 	open func initialization() {
-		guard childViewController.count == tabBarItems.count else {
-			fatalError("Error: Amount of ViewController should be equal to items of tab bar")
-		}
+		errorCheck()
 		
 		setupTabBarView()
 		setupViewControllers()
 		setupInitialViewController()
 		
 		setConstraints()
+	}
+
+	private func errorCheck() {
+		guard childViewController.count == tabBarItems.count else {
+			fatalError("Error: Amount of ViewController should be equal to items of tab bar")
+		}
+
+		guard tabBarItems != nil else {
+			fatalError("Error: 'tabBarItems' was't initialized")
+		}
+
+		guard childViewController != nil else {
+			fatalError("Error: 'childViewController' was't initialized")
+		}
+
+		guard highlighterColor != nil else {
+			fatalError("Error: 'highlighterColor' was't initialized")
+		}
 	}
 	
 	private func setupTabBarView() {
