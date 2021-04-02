@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class FancyTabBarView: UIView {
+public final class FancyTabBarView: UIView {
 	
 	internal struct Constants {
 		static let height: CGFloat = 70
